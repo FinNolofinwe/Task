@@ -4,9 +4,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/index.css">
+
   <title>Test task</title>
 </head>
 <body>
-  
+  <header class="header">
+    <div class="header__logo"></div>
+    <button class="header__login">Войти</button>
+  </header>
+  <main class="main">
+    <form action="#" class="form">
+      <h5 class="form__title">Начните торговать  прямо сейчас</h5>
+      <div class="form__thesis">
+        <img class="form__thesis-img" src="assets/ic/check.png" alt="check">
+        <div class="form__thesis-text">Нет спреда — торгуйте с прозрачными и точными котировками</div>
+      </div>
+      <div class="form__thesis">
+        <img class="form__thesis-img" src="assets/ic/check.png" alt="check">
+        <div class="form__thesis-text">Достаточно депозита в $10, чтобы начать торговать</div>
+      </div>
+      <div class="form__fields">
+        <input class= "form__field" type="email" placeholder="Ваш e-mail">
+        <input class= "form__field" type="password" placeholder="Придумайте пароль">
+      </div>
+      <!-- Currency widget-->
+      <div class="form__currency">
+        <div class="form__currency-text">Валюта для ввода и вывода средств</div>
+        <div class="form__widget">
+            <input class="form__widget-check" type="checkbox" id="currency-01">
+            <label class="form__widget-button" for="currency-01">P</label>
+            <input type="checkbox" class="form__widget-check" id="currency-02">
+            <label class="form__widget-button" for="currency-02">S</label>
+            <input type="checkbox" class="form__widget-check" id="currency-03">
+            <label class="form__widget-button" for="currency-03">E</label>
+        </div>
+      </div>
+      <!--Age checkbox-->
+      <div class="form__age">
+        <input type="checkbox" class="form__age-check" id="age-check">
+        <label class="form__age-agreement" for="age-check"></label>
+        <div class="form__age-text">Я совершеннолетний, ознакомился и принимаю соглашение об оказании услуг.</div>
+      </div>
+      <!--Hidden notification-->
+      <div class="form__warning">
+        <img src="assets/attention.png" alt="Attention" class="form__warning-img">
+        <div class="form__warning-text">Учётная запись с указанным e-mail уже существует</div>
+      </div>
+      <!--Submit form-->
+      <button class="form__submit" type="submit">Зарегистрироваться</button>
+    </form>
+    <div class="devices">
+      <img src="assets/mockups/iphone/frontal-black.png" alt="phone" class="devices__phone">
+      <img src="assets/mockups/macbook/dark.png" alt="mac" class="devices__mac">
+    </div>
+  </main>
+  <div class="error">Неверный пароль</div>
 </body>
 </html>
