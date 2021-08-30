@@ -26,8 +26,14 @@
         <div class="form__thesis-text">Достаточно депозита в $10, чтобы начать торговать</div>
       </div>
       <div class="form__fields">
-        <input class= "form__field" type="email" placeholder="Ваш e-mail">
-        <input class= "form__field" type="password" placeholder="Придумайте пароль">
+        <div class="form__field">
+          <label class="form__field-placeholder" for="mail">Ваш e-mail</label>
+          <input type="email" class="form__field-input" id="mail"  required>
+        </div>
+        <div class="form__field">
+          <label class="form__field-placeholder" for="password">Придумайте пароль</label>
+          <input type="password" class="form__field-input" id="password" minlength="4" required>
+        </div>
       </div>
       <!-- Currency widget-->
       <div class="form__currency">
@@ -43,7 +49,7 @@
       </div>
       <!--Age checkbox-->
       <div class="form__age">
-        <input type="checkbox" class="form__age-check" id="age-check">
+        <input type="checkbox" class="form__age-check" id="age-check" required>
         <label class="form__age-agreement" for="age-check"></label>
         <div class="form__age-text">Я совершеннолетний, ознакомился и принимаю соглашение об оказании услуг.</div>
       </div>
@@ -54,12 +60,13 @@
       </div>
       <!--Submit form-->
       <button class="form__submit" type="submit">Зарегистрироваться</button>
+      <div class="form__error">Неверный пароль</div>
     </form>
     <div class="devices">
       <img src="assets/mockups/iphone/frontal-black.png" alt="phone" class="devices__phone">
       <img src="assets/mockups/macbook/dark.png" alt="mac" class="devices__mac">
     </div>
   </main>
-  <div class="error">Неверный пароль</div>
+  <script src="js/index.js"></script>
 </body>
 </html>
