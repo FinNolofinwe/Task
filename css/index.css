@@ -5,6 +5,12 @@
   src: url(../assets/fonts/San_Francisco/SFUIDisplay-Regular.woff2) format("woff2"), url(../assets/fonts/San_Francisco/SFUIDisplay-Regular.woff) format("woff"), url(../assets/fonts/San_Francisco/SFUIDisplay-Regular.ttf) format("truetype");
 }
 @font-face {
+  font-family: San Francisco;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../assets/fonts/San_Francisco/SFUIDisplay-Medium.woff2) format("woff2"), url(../assets/fonts/San_Francisco/SFUIDisplay-Medium.woff) format("woff"), url(../assets/fonts/San_Francisco/SFUIDisplay-Medium.ttf) format("truetype");
+}
+@font-face {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: normal;
@@ -16,6 +22,10 @@
   font-weight: bold;
   src: url(../assets/fonts/Open_Sans/open-sans-v23-latin_cyrillic-700.woff2) format("woff2"), url(../assets/fonts/Open_Sans/open-sans-v23-latin_cyrillic-700.woff) format("woff"), url(../assets/fonts/Open_Sans/open-sans-v23-latin_cyrillic-700.ttf) format("truetype");
 }
+*:focus {
+  outline: none !important;
+}
+
 body {
   background: #0b172a;
   width: 100%;
@@ -60,7 +70,10 @@ body {
 
 main {
   position: relative;
-  padding-left: 6.945vw;
+  padding-left: 6.94vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .form {
@@ -103,29 +116,47 @@ main {
   margin-top: 4.125vh;
 }
 .form__field {
+  position: relative;
+  margin-bottom: 2.25vh;
   font-family: San Francisco;
-  width: 30.55vw;
-  height: 8vh;
-  box-sizing: border-box;
-  margin-bottom: 2vh;
-  padding: 0 1.67vw;
-  background-color: #3a4246;
-  border: 2px solid #3a4246;
-  border-radius: 4px;
-  color: #FFFFFF;
-  font-size: 1.11vw;
-  line-height: 1.5;
   cursor: pointer;
 }
-.form__field::-webkit-input-placeholder,
-.form__field ::-moz-placeholder,
-.form__field :-moz-placeholder,
-.form__field :-ms-input-placeholder {
-  font-family: San Francisco;
+.form__field-placeholder {
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  top: 2.5vh;
+  left: 1.67vw;
+  font-size: 1.11vw;
+  line-height: 1.5;
   color: #7A8F99;
-  font-size: 1.67vw;
-  line-height: 7.75vh;
-  vertical-align: sub;
+  transition: all 0.3s;
+}
+.form__field-input {
+  width: 30.55vw;
+  padding: 2.375vh 1.67vw;
+  box-sizing: border-box !important;
+  background-color: #3a4246;
+  border: none;
+  border: 0.07vw solid #3a4246;
+  border-radius: 4px;
+  font-family: San Francisco;
+  font-size: 1.11vw;
+  line-height: 1.5;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+}
+.form__field-input:hover {
+  border: 0.07vw solid #024e2c;
+}
+.form .placeholder-active {
+  top: 1.5vh;
+  font-size: 0.83vw;
+}
+.form .input-active {
+  padding-top: 3.75vh;
+  padding-bottom: 1vh;
 }
 .form__currency {
   display: flex;
@@ -159,6 +190,7 @@ main {
   color: #7A8F99;
   background-color: #3a4246;
   border: 0.07vw solid #3a4246;
+  border-right-color: #0b172a;
   text-align: center;
   font-size: 1.39vw;
   line-height: 3.75vh;
@@ -169,6 +201,7 @@ main {
 }
 .form__widget-button:last-child {
   border-radius: 0 4px 4px 0;
+  border-color: #3a4246;
 }
 .form__widget-check {
   width: 0.1px;
@@ -180,6 +213,7 @@ main {
   appearance: none;
 }
 .form__widget-check:checked + .form__widget-button {
+  font-weight: 500;
   background-color: #0b172a;
   border: 0.07vw solid #20A86B;
 }
@@ -211,8 +245,8 @@ main {
   content: "";
   display: inline-block;
   vertical-align: middle;
-  width: 1.875vw;
-  height: 1.875vw;
+  width: 2.235vw;
+  height: 2.235vw;
   background-image: url(../assets/ic/check.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -256,6 +290,7 @@ main {
   border: none;
   background-color: #20A86B;
   color: #FFFFFF;
+  border-radius: 4px;
   font-family: Open Sans;
   font-size: 1.11vw;
   line-height: 7vh;
@@ -305,20 +340,17 @@ main {
 }
 
 .devices {
-  position: absolute;
-  top: auto;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  width: 56.11vw;
-  height: 76.625vh;
+  position: relative;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  width: 55.21vw;
+  height: 42.57vw;
 }
 .devices__phone {
   position: absolute;
   display: block;
-  top: auto;
-  bottom: 0;
-  left: 0;
+  top: 9.1vw;
+  left: -0.9vw;
   z-index: 10;
   width: 17.01vw;
   height: auto;
@@ -326,9 +358,8 @@ main {
 .devices__mac {
   position: absolute;
   display: block;
-  top: auto;
-  bottom: 0;
-  left: auto;
+  top: 0;
+  left: 0;
   right: 0;
   z-index: 0;
   width: 55.21vw;
@@ -342,7 +373,7 @@ main {
   .header__logo {
     width: 9.72vw;
     height: 1vh;
-    margin-top: 1.5vh;
+    margin-top: 0;
   }
   .header__login {
     height: auto;
@@ -362,39 +393,53 @@ main {
   }
 
   .form {
+    padding-bottom: 0;
     position: relative;
+    margin-right: 0;
   }
   .form__title {
     margin: 0;
     padding-bottom: 24px;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.33;
   }
   .form__thesis {
-    padding-bottom: 24px;
+    padding-bottom: 16px;
   }
   .form__fields {
-    margin-top: 24px;
+    margin-top: 16px;
   }
   .form__field {
-    width: 30.55vw;
-    height: auto;
-    margin-bottom: 16px;
-    padding: 20px 1.67vw;
+    margin-bottom: 2vh;
+    padding: 0;
   }
-  .form__field::-webkit-input-placeholder,
-.form__field ::-moz-placeholder,
-.form__field :-moz-placeholder,
-.form__field :-ms-input-placeholder {
+  .form__field-placeholder {
+    top: 16px;
+    left: 1.67vw;
+    font-size: 1.11vw;
+  }
+  .form__field-input {
+    width: 30.55vw;
+    padding: 16px 1.67vw;
+    box-sizing: border-box !important;
+    background-color: #3a4246;
+    border: 0.07vw solid #3a4246;
+    border-radius: 4px;
     font-family: San Francisco;
-    color: #7A8F99;
-    font-size: 1.67vw;
-    line-height: 7.75vh;
-    vertical-align: sub;
+    font-size: 1.11vw;
+    line-height: 1.5;
+  }
+  .form .placeholder-active {
+    top: 8px;
+    font-size: 0.83vw;
+  }
+  .form .input-active {
+    padding-top: 24px;
+    padding-bottom: 8px;
   }
   .form__currency {
     width: 30.55vw;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
   .form__widget {
     width: 20.6vw;
@@ -408,7 +453,7 @@ main {
   }
   .form__age {
     width: 30.55vw;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
   .form__age-agreement {
     border-radius: 4px;
@@ -417,7 +462,7 @@ main {
     width: 100%;
     height: auto;
     padding: 8px 1.67vw;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: none;
   }
   .form__warning-text {
@@ -429,10 +474,11 @@ main {
   .form__submit {
     width: 100%;
     height: auto;
-    margin-top: 8px;
+    margin-top: 0;
     font-family: Open Sans;
     font-size: 1.11vw;
     line-height: 3.5;
+    border-radius: 4px;
   }
   .form__error {
     display: none;
@@ -455,6 +501,186 @@ main {
   .form__error:before {
     left: 50%;
     margin-left: -3px;
+  }
+
+  .devices {
+    position: relative;
+    margin-top: 2vh;
+    margin-bottom: 50px;
+    width: 55.21vw;
+    height: 42.57vw;
+  }
+  .devices__phone {
+    position: absolute;
+    display: block;
+    top: auto;
+    bottom: 0;
+    left: -0.9vw;
+    z-index: 10;
+    width: 17.01vw;
+    height: auto;
+  }
+  .devices__mac {
+    position: absolute;
+    display: block;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    width: 55.21vw;
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  main {
+    position: relative;
+    padding-left: 5vw;
+  }
+
+  .form {
+    position: relative;
+    width: 32.55vw;
+    padding-bottom: 16px;
+  }
+  .form__title {
+    font-size: 3.125vw;
+    line-height: 1.33;
+    padding-bottom: 20px;
+  }
+  .form__thesis {
+    padding-bottom: 16px;
+  }
+  .form__thesis-text {
+    width: 29.9vw;
+    font-size: 1.11vw;
+    line-height: 1.5;
+    letter-spacing: 0.023em;
+  }
+  .form__fields {
+    margin-top: 12px;
+  }
+  .form__field {
+    margin-bottom: 2vh;
+    padding: 0;
+  }
+  .form__field-placeholder {
+    top: 16px;
+    left: 1.67vw;
+    font-size: 1.11vw;
+  }
+  .form__field-input {
+    width: 32.55vw;
+    padding: 16px 1.67vw;
+    box-sizing: border-box !important;
+    background-color: #3a4246;
+    border: 0.07vw solid #3a4246;
+    border-radius: 4px;
+    font-family: San Francisco;
+    font-size: 1.11vw;
+    line-height: 1.5;
+  }
+  .form .placeholder-active {
+    top: 8px;
+    font-size: 8px;
+  }
+  .form .input-active {
+    padding-top: 24px;
+    padding-bottom: 8px;
+  }
+  .form__currency {
+    width: 32.55vw;
+    margin-bottom: 16px;
+  }
+  .form__currency-text {
+    width: 9.47vw;
+    font-size: 1vw;
+  }
+  .form__widget {
+    width: 21.94vw;
+    border-radius: 2px;
+  }
+  .form__widget-button {
+    width: 7.31vw;
+    height: auto;
+    font-size: 1.39vw;
+    line-height: 1.64;
+  }
+  .form__age {
+    width: 32.55vw;
+    margin-bottom: 16px;
+  }
+  .form__age-agreement {
+    margin-right: 2vw;
+    width: 2.55vw;
+    height: 2.55vw;
+    background-color: #3a4246;
+    border-radius: 4px;
+  }
+  .form__age-check:checked + .form__age-agreement::before {
+    width: 2.55vw;
+    height: 2.55vw;
+  }
+  .form__age-text {
+    width: 28vw;
+    font-size: 1vw;
+  }
+  .form__warning {
+    width: 100%;
+    height: auto;
+    padding: 13.5px 1.67vw;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .form__warning-text {
+    font-size: 1vw;
+    line-height: 1.5;
+  }
+  .form__submit {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    font-size: 1vw;
+    line-height: 5;
+    font-weight: bold;
+  }
+  .form__error {
+    display: none;
+    position: absolute;
+    width: 19.44vw;
+    height: 5vh;
+    font-size: 1.11vw;
+    line-height: 5vh;
+    color: #FFFFFF;
+    text-align: center;
+    box-sizing: border-box;
+    border-collapse: #E15433;
+    background-color: #E15433;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: calc();
+  }
+  .form__error:after, .form__error:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .form__error:after {
+    border-color: #E15433 transparent transparent #E15433;
+    border-width: 0.278vw;
+    left: 50%;
+    margin-left: 0.278vw;
+  }
+  .form__error:before {
+    border-color: #E15433 #E15433 transparent transparent;
+    border-width: 0.278vw;
+    left: 50%;
+    margin-left: -0.278vw;
   }
 
   .devices {
@@ -486,6 +712,203 @@ main {
     z-index: 0;
     width: 55.21vw;
     height: auto;
+  }
+}
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 16px 8vw;
+  }
+  .header__logo {
+    margin-top: 0;
+    width: 20vw;
+    height: 8px;
+  }
+  .header__login {
+    height: auto;
+    font-size: 8px;
+    line-height: 1.5px;
+  }
+  .header__login::before {
+    margin-right: 0.417vw;
+    vertical-align: sub;
+    height: 12px;
+    width: 12px;
+  }
+
+  main {
+    padding: 0 8vw;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 84vw;
+    padding-bottom: 4.5vh;
+    font-family: San Francisco;
+  }
+  .form__title {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 24px;
+    font-size: 24px;
+    line-height: 1.33;
+  }
+  .form__thesis {
+    padding-bottom: 2vh;
+    width: 84vw;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    vertical-align: top;
+  }
+  .form__thesis-img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 12px;
+    margin-top: 4px;
+    margin-right: 1.4vw;
+  }
+  .form__thesis-text {
+    width: 78vw;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.023em;
+  }
+  .form__fields {
+    margin-top: 12px;
+  }
+  .form__field {
+    margin-bottom: 16px;
+    font-family: San Francisco;
+  }
+  .form__field-placeholder {
+    top: 12px;
+    left: 1.67vw;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #7A8F99;
+    transition: all 0.3s;
+  }
+  .form__field-input {
+    width: 84vw;
+    padding: 12px 1.67vw;
+    box-sizing: border-box !important;
+    border-radius: 4px;
+    font-family: San Francisco;
+    font-size: 10px;
+    line-height: 1.5;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+  }
+  .form .placeholder-active {
+    top: 6px;
+    font-size: 8px;
+  }
+  .form .input-active {
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+  .form__currency {
+    width: 84vw;
+    margin-bottom: 16px;
+  }
+  .form__currency-text {
+    width: 20vw;
+    margin-right: 4vw;
+    font-size: 8px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+  }
+  .form__widget {
+    width: 60vw;
+    background-color: #3a4246;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .form__widget-button {
+    width: 20vw;
+    height: auto;
+    font-size: 12px;
+    line-height: 2;
+  }
+  .form__age {
+    width: 84vw;
+    margin-bottom: 16px;
+  }
+  .form__age-agreement {
+    margin-right: 4vw;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+  }
+  .form__age-check:checked + .form__age-agreement::before {
+    width: 24px;
+    height: 24px;
+  }
+  .form__age-text {
+    width: 74vw;
+    font-size: 8px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+  }
+  .form__warning {
+    width: 84vw;
+    height: auto;
+    padding: 12px 1.67vw;
+    margin-bottom: 12px;
+    display: none;
+    border-radius: 4px;
+  }
+  .form__warning-img {
+    width: 12px;
+    height: 12px;
+    margin-right: 12px;
+  }
+  .form__warning-text {
+    width: 60vw;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .form__submit {
+    width: 84vw;
+    height: auto;
+    margin-top: 0;
+    padding: 12px 1.67vw;
+    font-size: 10px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+  .form__submit:hover {
+    background-color: #3ec286;
+  }
+  .form__error {
+    display: none;
+    width: 30vw;
+    height: auto;
+    padding: 8px 1.67vw;
+    font-size: 10px;
+    line-height: 1.5;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  .form__error:after {
+    border-color: #E15433 transparent transparent #E15433;
+    border-width: 2px;
+    left: 50%;
+    margin-left: 2px;
+  }
+  .form__error:before {
+    border-color: #E15433 #E15433 transparent transparent;
+    border-width: 2px;
+    left: 50%;
+    margin-left: -2px;
+  }
+
+  .devices {
+    display: none;
   }
 }
 
