@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currencyType = 'P';
           rubCurr.checked = true;
         };
-        e.target.submit();
+        form.submit();
       } else {
         form.password.style.borderColor = '#E15433';
       }
