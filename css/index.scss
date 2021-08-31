@@ -2,7 +2,7 @@
   font-family: San Francisco;
   font-style: normal;
   font-weight: 400;
-  src: url(../assets/fonts/San_Francisco/SFUIDisplay-Regular.woff2) format('woff2'), 
+  src:  
       url(../assets/fonts/San_Francisco/SFUIDisplay-Regular.woff) format('woff'), 
       url(../assets/fonts/San_Francisco/SFUIDisplay-Regular.ttf) format('truetype');
 }
@@ -11,7 +11,7 @@
   font-family: San Francisco;
   font-style: normal;
   font-weight: 500;
-  src: url(../assets/fonts/San_Francisco/SFUIDisplay-Medium.woff2) format('woff2'), 
+  src: 
       url(../assets/fonts/San_Francisco/SFUIDisplay-Medium.woff) format('woff'), 
       url(../assets/fonts/San_Francisco/SFUIDisplay-Medium.ttf) format('truetype');
 }
@@ -28,7 +28,7 @@
 @font-face {
   font-family: 'Open Sans';  
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   src: url(../assets/fonts/Open_Sans/open-sans-v23-latin_cyrillic-700.woff2) format('woff2'),
       url(../assets/fonts/Open_Sans/open-sans-v23-latin_cyrillic-700.woff) format('woff'),
       url(../assets/fonts/Open_Sans/open-sans-v23-latin_cyrillic-700.ttf) format('truetype');
@@ -94,7 +94,6 @@ main {
   justify-content: space-between;
 }
 .form {
-  position: relative;
   width: 30.56vw;
   padding-bottom: 4.5vh;
 
@@ -134,6 +133,7 @@ main {
     }
   }
   &__fields{
+    position: relative;
     margin-top: 4.125vh;
   }
 
@@ -159,7 +159,7 @@ main {
       width: 30.55vw;
       padding: 2.375vh 1.67vw;
 
-      box-sizing: border-box !important;
+      box-sizing: border-box;
       background-color: #3a4246;
       border: none;
       border: 0.07vw solid #3a4246;
@@ -178,13 +178,14 @@ main {
   }
 
   .placeholder-active {
-    top: 1.5vh;
+    top: 1.7vh;
     font-size: 0.83vw;
   }
 
   .input-active {
-    padding-top: 3.75vh;
-    padding-bottom: 1vh;
+    font-weight: normal;
+    padding-top: 4vh;
+    padding-bottom: 0.75vh;
   }
 
   &__currency {
@@ -309,7 +310,7 @@ main {
     height: 8vh;
 
     padding: 0 1.67vw;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
 
     display: none;
     flex-direction: row;
@@ -321,9 +322,9 @@ main {
     background-color: #E15433;
     border-radius: 4px;
     &-img {
-      width: 1.67vw;
-      height: 1.67vw;
-      margin-right: 1.39vw;
+      width: 1.18vw;
+      height: 1.18vw;
+      margin-right: 1.6vw;
     }
     &-text {
       width: 24.44vw;
@@ -360,7 +361,8 @@ main {
     width: 19.44vw;
     height: 5vh;
   
-    font-size: 1.11vw;
+    font-family: San Francisco;
+    font-size: 1.15vw;
     line-height: 5vh;
     color: #FFFFFF;
     text-align: center;
@@ -372,7 +374,7 @@ main {
 
     transform: translateX(-50%);
     left: 50%;
-    top: calc();
+    top: 20%;
 
     &:after, &:before {
       top: 100%;
@@ -572,7 +574,7 @@ main {
       height: auto;
     
       font-size: 1.11vw;
-      line-height: 2.5vh;
+      line-height: 2.5;
     
       box-sizing: border-box;
       border-collapse: #E15433;
@@ -581,13 +583,16 @@ main {
 
       transform: translateX(-50%);
       left: 50%;
+      top: 20%;
       &:after {
+        border-width: 4px;
         left: 50%;
-        margin-left: 3px;
+        margin-left: 4px;
       }
       &:before {
+        border-width: 4px;
         left: 50%;
-        margin-left: -3px;
+        margin-left: -px;
       }
     }
   }
@@ -759,10 +764,10 @@ main {
       display: none;
       position: absolute;
       width: 19.44vw;
-      height: 5vh;
+      height: auto;
     
       font-size: 1.11vw;
-      line-height: 5vh;
+      line-height: 3.5;
       color: #FFFFFF;
       text-align: center;
     
@@ -773,7 +778,7 @@ main {
   
       transform: translateX(-50%);
       left: 50%;
-      top: calc();
+      top: 22%;
   
       &:after, &:before {
         top: 100%;
@@ -1040,6 +1045,7 @@ main {
     
       transform: translateX(-50%);
       left: 50%;
+      top: 15%;
       &:after {
         border-color: #E15433 transparent transparent #E15433;
         border-width: 2px;
