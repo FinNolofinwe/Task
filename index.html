@@ -28,23 +28,24 @@
       <div class="form__fields">
         <div class="form__field">
           <label class="form__field-placeholder" for="mail">Ваш e-mail</label>
-          <input type="email" class="form__field-input" id="mail"  required>
+          <input type="email" class="form__field-input" id="mail" name="email" autocomplete="off">
         </div>
+        <div class="form__error">Неверный пароль</div>
         <div class="form__field">
           <label class="form__field-placeholder" for="password">Придумайте пароль</label>
-          <input type="password" class="form__field-input" id="password" minlength="4" required>
+          <input type="password" class="form__field-input" id="password" name="password">
         </div>
       </div>
       <!-- Currency widget-->
       <div class="form__currency">
         <div class="form__currency-text">Валюта для ввода и вывода средств</div>
         <div class="form__widget">
-            <input class="form__widget-check" type="checkbox" id="currency-01">
-            <label class="form__widget-button" for="currency-01">P</label>
-            <input type="checkbox" class="form__widget-check" id="currency-02">
-            <label class="form__widget-button" for="currency-02">S</label>
-            <input type="checkbox" class="form__widget-check" id="currency-03">
-            <label class="form__widget-button" for="currency-03">E</label>
+            <input type="radio" name="currency" class="form__widget-check" id="currency-ru">
+            <label class="form__widget-button" for="currency-ru">P</label>
+            <input type="radio" name="currency" class="form__widget-check" id="currency-dol">
+            <label class="form__widget-button" for="currency-dol">S</label>
+            <input type="radio" name="currency" class="form__widget-check" id="currency-eu">
+            <label class="form__widget-button" for="currency-eu">E</label>
         </div>
       </div>
       <!--Age checkbox-->
@@ -60,7 +61,7 @@
       </div>
       <!--Submit form-->
       <button class="form__submit" type="submit">Зарегистрироваться</button>
-      <div class="form__error">Неверный пароль</div>
+      
     </form>
     <div class="devices">
       <img src="assets/mockups/iphone/frontal-black.png" alt="phone" class="devices__phone">
